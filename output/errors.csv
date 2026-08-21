@@ -1,0 +1,52 @@
+submission_id,source_file,merchant_name,region,region_pic_email,rejection_reasons
+A002,submissions_partnerA.csv,Kedai Bahagia Trading,,,Missing required field(s): region
+A003,submissions_partnerA.csv,Gerai Emas Holdings,Northern,weiming.tan@example-ops.test,Phone has fewer than 9 digits after normalising: '+60-99'
+A004,submissions_partnerA.csv,Kedai Emas Trading,Central,aishah.rahman@example-ops.test,Merchant already onboarded (matched by id or name)
+A005,submissions_partnerA.csv,Sinar Lestari Sdn Bhd,Northern,weiming.tan@example-ops.test,Phone has fewer than 9 digits after normalising: 'phone n/a'
+A014,submissions_partnerA.csv,WARUNG SELERA RESOURCES,Southern,devraj.pillai@example-ops.test,Could not map business category 'other' to any canonical category
+A015,submissions_partnerA.csv,SINAR CEMERLANG TRADING,East Coast,nurul.huda@example-ops.test,Phone has fewer than 9 digits after normalising: '03-1122'
+A020,submissions_partnerA.csv,RESTORAN LESTARI TRADING,Central,aishah.rahman@example-ops.test,Phone has fewer than 9 digits after normalising: '012345'
+A039,submissions_partnerA.csv,Pusat Fajar,Central,aishah.rahman@example-ops.test,Merchant already onboarded (matched by id or name)
+A046,submissions_partnerA.csv,The Bahagia Resources,,,Missing required field(s): region
+A047,submissions_partnerA.csv,Maju Impian,Southern,devraj.pillai@example-ops.test,Merchant already onboarded (matched by id or name)
+A050,submissions_partnerA.csv,RESTORAN MUTIARA & SONS,Sarawak,margaret.anyi@example-ops.test,Merchant already onboarded (matched by id or name)
+A058,submissions_partnerA.csv,BESTARI IMPIAN HOLDINGS,Northern,weiming.tan@example-ops.test,Could not map business category 'n/a' to any canonical category
+A059,submissions_partnerA.csv,Kedai Selera Sdn Bhd,Sarawak,margaret.anyi@example-ops.test,Phone has fewer than 9 digits after normalising: '012345'
+A060,submissions_partnerA.csv,Restoran Mutiara Enterprise,Sabah,jeffrey.lojuki@example-ops.test,Registration date '2026-12-01' is after reference date 2026-06-01
+A062,submissions_partnerA.csv,Restoran Emas Trading,Northern,weiming.tan@example-ops.test,Merchant already onboarded (matched by id or name)
+A066,submissions_partnerA.csv,sejahtera jaya holdings,Sarawak,margaret.anyi@example-ops.test,Registration date '2026-09-26' is after reference date 2026-06-01
+A068,submissions_partnerA.csv,Bestari Damai Trading,Northern,weiming.tan@example-ops.test,Phone has fewer than 9 digits after normalising: '03-1122'
+A069,submissions_partnerA.csv,The Anugerah Trading,East Coast,nurul.huda@example-ops.test,Merchant already onboarded (matched by id or name)
+A070,submissions_partnerA.csv,Maju Emas Holdings,East Coast,nurul.huda@example-ops.test,Phone has fewer than 9 digits after normalising: '+60-99'
+B001,submissions_partnerB.csv,sejahtera mutiara & sons,Sarawak,margaret.anyi@example-ops.test,Invalid email format: 'two@@at.com'
+B007,submissions_partnerB.csv,SYARIKAT GEMILANG TRADING,Sarawak,margaret.anyi@example-ops.test,Invalid email format: '@nodomain.com'
+B008,submissions_partnerB.csv,Restoran Anugerah & Sons,West,,Invalid region: 'West'
+B017,submissions_partnerB.csv,HARMONI EMAS TRADING,Sarawak,margaret.anyi@example-ops.test,Phone has fewer than 9 digits after normalising: 'phone n/a'
+B019,submissions_partnerB.csv,Restoran Fajar Trading,Southern,devraj.pillai@example-ops.test,Could not map business category 'other' to any canonical category
+B020,submissions_partnerB.csv,Harmoni Harapan Trading,Sabah,jeffrey.lojuki@example-ops.test,Could not map business category 'n/a' to any canonical category
+B023,submissions_partnerB.csv,,Sabah,jeffrey.lojuki@example-ops.test,Missing required field(s): merchant_name
+B025,submissions_partnerB.csv,Kedai Bahagia Sdn Bhd,Northern,weiming.tan@example-ops.test,Phone has fewer than 9 digits after normalising: '012345'
+B027,submissions_partnerB.csv,the fajar holdings,Northern,weiming.tan@example-ops.test,Registration date '7/10/2026' is after reference date 2026-06-01
+B029,submissions_partnerB.csv,Bestari Jaya Enterprise,Southern,devraj.pillai@example-ops.test,Invalid email format: 'not-an-email'
+B030,submissions_partnerB.csv,SYARIKAT BAHAGIA HOLDINGS,Southern,devraj.pillai@example-ops.test,Could not map business category 'other' to any canonical category
+B031,submissions_partnerB.csv,,Sarawak,margaret.anyi@example-ops.test,Missing required field(s): merchant_name
+B058,submissions_partnerB.csv,Warung Fajar Enterprise,Southern,devraj.pillai@example-ops.test,Missing required field(s): contact_email
+B059,submissions_partnerB.csv,Restoran Damai Trading,Northern,weiming.tan@example-ops.test,Phone has fewer than 9 digits after normalising: '00'
+B060,submissions_partnerB.csv,Pusat Fajar,East Coast,nurul.huda@example-ops.test,Merchant already onboarded (matched by id or name)
+B062,submissions_partnerB.csv,,Central,aishah.rahman@example-ops.test,Missing required field(s): merchant_name
+C001,submissions_partnerC.csv,syarikat harapan & sons,Southern,devraj.pillai@example-ops.test,Invalid email format: 'two@@at.com'
+C002,submissions_partnerC.csv,the damai resources,Sabah,jeffrey.lojuki@example-ops.test,Phone has fewer than 9 digits after normalising: '012345'; Merchant already onboarded (matched by id or name)
+C006,submissions_partnerC.csv,Pusat Cemerlang Trading,Sabah,jeffrey.lojuki@example-ops.test,Invalid email format: '@nodomain.com'
+C014,submissions_partnerC.csv,Sinar Emas Holdings,Central,aishah.rahman@example-ops.test,Could not map business category 'other' to any canonical category
+C023,submissions_partnerC.csv,,Central,aishah.rahman@example-ops.test,Missing required field(s): merchant_name
+C025,submissions_partnerC.csv,PUSAT FAJAR & SONS,Sabah,jeffrey.lojuki@example-ops.test,Phone has fewer than 9 digits after normalising: '012345'
+C028,submissions_partnerC.csv,,Sarawak,margaret.anyi@example-ops.test,Missing required field(s): merchant_name
+C032,submissions_partnerC.csv,the anugerah & sons,Southern,devraj.pillai@example-ops.test,Invalid email format: 'two@@at.com'
+C034,submissions_partnerC.csv,maju fajar holdings,Sabah,jeffrey.lojuki@example-ops.test,Invalid email format: 'not-an-email'
+C036,submissions_partnerC.csv,the jaya,West,,Invalid region: 'West'
+C038,submissions_partnerC.csv,Maju Impian,Southern,devraj.pillai@example-ops.test,Merchant already onboarded (matched by id or name)
+C039,submissions_partnerC.csv,RESTORAN ANUGERAH & SONS,Central,aishah.rahman@example-ops.test,Phone has fewer than 9 digits after normalising: '012345'
+C040,submissions_partnerC.csv,Gerai Emas Sdn Bhd,Central,aishah.rahman@example-ops.test,Could not map business category 'other' to any canonical category; Merchant already onboarded (matched by id or name)
+C049,submissions_partnerC.csv,RESTORAN SELERA HOLDINGS,East Coast,nurul.huda@example-ops.test,Phone has fewer than 9 digits after normalising: '012345'
+C050,submissions_partnerC.csv,sejahtera kasih enterprise,Sabah,jeffrey.lojuki@example-ops.test,Could not map business category 'general trading sdn bhd' to any canonical category
+C051,submissions_partnerC.csv,Syarikat Impian Holdings,Central,aishah.rahman@example-ops.test,Missing required field(s): contact_email
