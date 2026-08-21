@@ -1,5 +1,5 @@
 import os
-
+import re
 from dotenv import load_dotenv
 from google import genai
 
@@ -45,7 +45,7 @@ def _keyword_match(text: str) -> str | None:
     matches = [
         category
         for category, keywords in CATEGORY_KEYWORDS.items()
-        if any(keyword in text for keyword in keywords)
+        if any(re.search(rf"\b{re.escape(kw)}\b", text) for kw in keywords)
     ]
     return matches[0] if len(matches) == 1 else None
 

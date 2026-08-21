@@ -21,6 +21,7 @@ from process.validate import (
 )
 
 CLEAN_FIELDNAMES = [
+    "source_submission_id",
     "merchant_name",
     "canonical_category",
     "region",
@@ -28,7 +29,6 @@ CLEAN_FIELDNAMES = [
     "contact_email",
     "registration_date",
     "region_pic_email",
-    "source_submission_id",
     "duplicates_collapsed",
 ]
 
