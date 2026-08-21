@@ -44,8 +44,7 @@ ERROR_FIELDNAMES = [
 
 @dataclass
 class Stats:
-    """Run summary, printed at the end so a human can sanity-check a run at a glance."""
-
+# summary run
     files_read: int = 0
     rows_read: int = 0
     regions_aliased: int = 0
@@ -94,29 +93,15 @@ def find_partner_files(data_dir: str) -> list[str]:
 
 
 def read_partner_rows(files: list[str]) -> tuple[list[dict], int]:
-    """Read every CSV into memory, tagging each row with its source file.
-
-    All three partner files are small (tens to low hundreds of rows), so reading
-    everything into memory up front is simple and fast. See README for how this would
-    need to change at ~50k rows/week (streaming per-file instead of an in-memory list).
-
-    Returns (rows, regions_aliased_count) — the count is how many rows had a known
-    near-miss region spelling (e.g. "Penang") resolved to its canonical name (e.g.
-    "Northern") before any validation ran. See resolve_region_alias in validate.py.
-    """
     rows: list[dict] = []
     regions_aliased = 0
     for path in files:
         with open(path, newline="", encoding="utf-8-sig") as f:
             reader = csv.DictReader(f)
             for row in reader:
-                # Guard against stray whitespace-only rows / trailing blank lines.
                 if not any((v or "").strip() for v in row.values()):
                     continue
                 row["source_file"] = os.path.basename(path)
-                # Resolve known near-miss region spellings (e.g. "Penang" -> "Northern")
-                # once, up front, so every later step (validation, clean-row building,
-                # error routing) sees the same resolved region consistently.
                 original_region = row.get("region", "")
                 if original_region:
                     resolved_region = resolve_region_alias(original_region)
@@ -153,11 +138,7 @@ def build_clean_row(
 
 
 def build_error_row(row: dict, reasons: list[str], reference: ReferenceData) -> dict:
-    """Keep an error row human-readable: original values, plus who to route it to.
-
-    A row can be rejected *for* having an invalid region, in which case there is no PIC
-    to route it to — region_pic_email is left blank rather than guessed at.
-    """
+# blawnk pic if region invalid
     region = (row.get("region") or "").strip()
     return {
         "submission_id": row.get("submission_id", "").strip(),

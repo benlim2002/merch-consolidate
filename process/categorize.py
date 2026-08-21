@@ -133,8 +133,7 @@ def precategorize_unique_values(
 
 
 if __name__ == "__main__":
-    # Self-checks against real freetext values, keyword layer only
-    # (use_llm=False) so this runs without needing an API key.
+    # self-checks against real freetext values, keyword layer only
     known_mappings = {
         "kopitiam": "Food & Beverage",
         "mamak restaurant": "Food & Beverage",

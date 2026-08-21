@@ -5,8 +5,7 @@ from process.reference import ReferenceData
 REFERENCE_DATE = date(2026, 6, 1)
 
 
-# Normalisation helpers
-
+# normalization helpers
 def normalise_name(name: str) -> str:
     collapsed = " ".join(name.strip().split())
     return collapsed.title()
@@ -16,11 +15,6 @@ def normalise_email(email: str) -> str:
     return email.strip().lower()
 
 
-# A few partners submit near-miss region names that map unambiguously onto one of the
-# canonical regions in reference.db. We alias only the ones we're confident about;
-# anything genuinely ambiguous (e.g. "West", which could mean Northern, Central, or
-# Southern — all three sit on the west coast) is deliberately left unaliased so it
-# still gets rejected and routed back to the partner for clarification. See README.
 REGION_ALIASES: dict[str, str] = {
     "kl": "Central",
     "klang valley": "Central",
@@ -29,12 +23,6 @@ REGION_ALIASES: dict[str, str] = {
 
 
 def resolve_region_alias(region: str) -> str:
-    """Map a known near-miss region spelling onto its canonical name.
-
-    Case-insensitive, whitespace-tolerant. Returns the original (trimmed) value
-    unchanged if it isn't a known alias — including genuinely ambiguous values like
-    "West", which are intentionally left for Rule 2 to reject.
-    """
     trimmed = region.strip()
     key = " ".join(trimmed.lower().split())
     return REGION_ALIASES.get(key, trimmed)
@@ -63,7 +51,7 @@ _DATE_FORMATS = ("%Y-%m-%d", "%d/%m/%Y")
 
 def normalise_date(raw_date: str) -> date | None:
 
-#    Parses both YYYY-MM-DD or D/M/YYYY 
+# parses both YYYY-MM-DD or D/M/YYYY 
     raw_date = raw_date.strip()
     for fmt in _DATE_FORMATS:
         try:
@@ -76,11 +64,7 @@ def normalise_date(raw_date: str) -> date | None:
 def format_date_iso(parsed_date: date) -> str:
     return parsed_date.strftime("%Y-%m-%d")
 
-
-# ---------------------------------------------------------------------------
-# Business rules
-# ---------------------------------------------------------------------------
-
+#business rules
 REQUIRED_FIELDS = [
     "merchant_name",
     "region",
@@ -103,10 +87,6 @@ def validate_submission(
     missing = [f for f in REQUIRED_FIELDS if not row.get(f, "").strip()]
     if missing:
         reasons.append(f"Missing required field(s): {', '.join(missing)}")
-
-    # From here on, guard each check so we don't crash on a blank field
-    # already reported above — but we still want to report every applicable
-    # reason, so checks run independently rather than short-circuiting.
 
     # Rule 2: valid region
     region = row.get("region", "").strip()
@@ -158,7 +138,7 @@ if __name__ == "__main__":
     assert normalise_phone("+60-12-3456789") == "0123456789"
     assert normalise_phone("012-3456789") == "0123456789"
     assert normalise_phone("03-1122") == "031122"
-    assert not is_valid_phone(normalise_phone("03-1122"))  # 6 digits, < 9
+    assert not is_valid_phone(normalise_phone("03-1122"))
     assert is_plausible_email("foo@bar.com")
     assert not is_plausible_email("not-an-email")
     assert normalise_date("2026-01-18") == date(2026, 1, 18)
