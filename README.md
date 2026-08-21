@@ -84,13 +84,7 @@ The same merchant can be submitted more than once, sometimes by different partne
 (**explained below**)
 
 
-**Winner rule: latest `registration_date`, not lowest `submission_id`.** The dedup winner rule was initially "lowest `submission_id` wins," but that
-assumption was checked against the actual partner data and were found false `submission_id` is **not chronological** across or even within partners.
-Since a partner's second submission of the same merchant and region is often a correction (fixed phone/email) rather than noise, the newer record is more
-"trustworthy?", so the tie-break was changed to latest `registration_date`. `submission_id` is kept only as a deterministic secondary tie-breaker 
-when two duplicate rows share the exact same `registration_date`. This relies on `registration_date` already being normalised to ISO `YYYY-MM-DD` by the
-time rows reach `dedupe.py` (done in `build_clean_row`, which runs before `deduplicate()`) plain string comparison only sorts correctly in that format.
-
+**Winner rule: latest registration_date, not lowest submission_id. Partner data showed that submission_id is not chronological, even within a partner. Since newer duplicate submissions may contain corrections, the latest registration_date is treated as more trustworthy. submission_id is used only as a deterministic tie-breaker when dates are identical. This assumes registration_date is already normalised to ISO YYYY-MM-DD before deduplication.
 
 **note** : when viewing, the date format will be switched to your operating system's default date/time format.
 
