@@ -228,7 +228,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument(
         "--data-dir", default="data", help="Directory containing submissions_partner*.csv"
     )
-    parser.add_argument("--db", default="reference.db", help="Path to reference.db")
+    parser.add_argument("--db", default="data/reference.db", help="Path to reference.db")
     parser.add_argument(
         "--out-dir", default="output", help="Directory to write clean.csv / errors.csv into"
     )

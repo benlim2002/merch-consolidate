@@ -75,7 +75,7 @@ def load_reference_data(db_path: str) -> ReferenceData:
 if __name__ == "__main__":
     import sys
 
-    db = sys.argv[1] if len(sys.argv) > 1 else "reference.db"
+    db = sys.argv[1] if len(sys.argv) > 1 else "data/reference.db"
     ref = load_reference_data(db)
     print(f"Categories ({len(ref.categories)}): {ref.categories}")
     print(f"Existing merchants: {len(ref.existing_merchant_ids)}")
