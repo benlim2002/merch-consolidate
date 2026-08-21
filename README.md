@@ -71,16 +71,11 @@ grocer"`, etc.) that must map one canonical category from
    values are sent to Gemini (`gemini-3.5-flash-lite`, temperature 0)
    to reply with exactly one of the canonical category names or `NONE`.
 
-**Why this scales:** classification runs once per *unique* free-text value (`precategorize_unique_values`), not once per row, and results are cached. 
-Only the genuinely ambiguous long tail ever reaches the LLM, keeping cost and latency roughly flat as volume grows. A value that fits nothing in either 
-tier is rejected (rule 5) rather than guessed.
+**Why this scales:**: classification runs once per unique free-text value, with results cached. Only genuinely ambiguous values reach the LLM, keeping cost and latency roughly flat as volume grows. Values that fit neither tier are rejected (rule 5) rather than guessed.
 
 Run `python -m process.categorize` to see the keyword-layer self-checks
 
-**Fixed: substring false-positives in keyword matching.** The original keyword matcher I used plain `keyword in text` substring checks, which caused
-false-positive single-category matches e.g. `"smart home solutions"` wrongly matched Grocery & Convenience because `"mart"` is a substring of
-`"smart"`. With the help of Claude, issue was fixed with word-boundary regex matching (`\bkeyword\b`) instead of raw substring search, so short keywords 
-like `"mart"` only match on real word boundaries.
+**Fixed: substring false-positives in keyword matching.**: replaced raw keyword in text matching with word-boundary regex (\bkeyword\b). This prevents false matches like "smart home solutions" being classified as Grocery & Convenience because "mart" appears inside "smart".
 
 ## Deduplication
 
