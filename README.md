@@ -84,7 +84,7 @@ The same merchant can be submitted more than once, sometimes by different partne
 (**explained below**)
 
 
-**Winner rule: latest registration_date, not lowest submission_id. Partner data showed that submission_id is not chronological, even within a partner. Since newer duplicate submissions may contain corrections, the latest registration_date is treated as more trustworthy. submission_id is used only as a deterministic tie-breaker when dates are identical. This assumes registration_date is already normalised to ISO YYYY-MM-DD before deduplication.
+**Winner rule**: latest registration_date, not lowest submission_id. Partner data showed that submission_id is not chronological, even within a partner. Since newer duplicate submissions may contain corrections, the latest registration_date is treated as more trustworthy. submission_id is used only as a deterministic tie-breaker when dates are identical. This assumes registration_date is already normalised to ISO YYYY-MM-DD before deduplication.
 
 **note** : when viewing, the date format will be switched to your operating system's default date/time format.
 
