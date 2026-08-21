@@ -164,11 +164,6 @@ single `possible_category_mismatch` column **in place**, blank if the
 name and category look consistent, otherwise a short reason. It does not
 reject, reorder, or otherwise modify any row.
 
-**Rate limited** to one real API call per 15 seconds by default
-(`--rate-limit` to override) as a conservative throttle, since this is a
-review aid, not the latency-sensitive core pipeline. Repeated
-(name, category) pairs are cached in-memory and don't count against the
-limit.
 
 ```bash
 python check.py --input output/clean.csv
