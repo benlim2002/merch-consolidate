@@ -10,7 +10,7 @@ pip install -r requirements.txt
 # optional for llm classification
 echo "GOOGLE_API_KEY=your-key-here" > .env
 
-python consolidate.py --data-dir data --db reference.db --out-dir output
+python consolidate.py --data-dir data --db data/reference.db --out-dir output
 ```
 
 Outputs are written to `output/clean.csv` and `output/errors.csv`.
