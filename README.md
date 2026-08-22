@@ -22,7 +22,7 @@ Flags:
 - `--no-llm`: skip the llm fallback or categorization
 
 ## Workflow Structure
-![Workflow diagram]()
+![Workflow diagram](images/workflow.png)
 
 ```
 consolidate.py          orchestrates the pipeline, writes clean.csv / errors.csv
